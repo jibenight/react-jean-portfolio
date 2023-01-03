@@ -1,5 +1,5 @@
 function About() {
-  render(
+  return (
     <section id='aboutMe'>
       <div id='entete'>
         <div className='left'>

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import chevron from './images/chevron.png';
+import arrowDown from './images/down-arrow.png';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -6,15 +8,11 @@ function App() {
   return (
     <main className='flex-centre animate__animated animate__fadeIn animate__delay-1s'>
       {/* zone d'accueil */}
-      <div id='cancel' class='icon-cross'>
-        <img
-          id='chevron'
-          src='./images/chevron.png'
-          alt='icon pour fermer la page'
-        />
+      <div id='cancel' className='icon-cross'>
+        <img id='chevron' src={chevron} alt='icon pour fermer la page' />
       </div>
       <div id='arrow-down'>
-        <img id='arrow-animation' src='./images/down-arrow.png' alt='' />
+        <img id='arrow-animation' src={arrowDown} alt='' />
       </div>
 
       <section id='home'>
