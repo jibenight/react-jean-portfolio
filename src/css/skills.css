@@ -1,0 +1,48 @@
+.skills {
+  width: 70vw;
+  height: 60vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: auto;
+}
+
+.flex-skills {
+  /* width: 8vw; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-skills svg {
+  width: 8vw;
+}
+
+.flex-skills p {
+  font-size: 1.5rem;
+  margin: 15px;
+  text-align: center;
+}
+
+.skills-animations {
+  width: 80vw;
+  height: 100vh;
+  margin: auto;
+  text-align: center;
+}
+.skills-animations :nth-child(2) {
+  margin-top: 3%;
+}
+
+#skills-techno :nth-child(2) {
+  color: #1fa2ff;
+}
+
+#skills-techno {
+  display: none;
+}
+
+.icons-skills img {
+  width: 50%;
+}

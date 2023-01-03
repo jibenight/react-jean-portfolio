@@ -1,0 +1,129 @@
+@media only screen and (max-width: 1200px) {
+  /* zone home    */
+  #chevron {
+    width: 50%;
+  }
+  .titre {
+    margin-top: 5%;
+  }
+  .titre h2 {
+    font-size: 1.5rem;
+  }
+  section#home {
+    background: #f8f8f8 url(../images/jean-background-portfolio-mobile.jpg)
+      no-repeat center;
+    background-size: cover;
+    align-items: flex-end;
+  }
+  .home-right {
+    margin-left: 0;
+    margin-bottom: 80px;
+    width: 38vw;
+  }
+  .timeline::after {
+    left: 10px;
+  }
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+  .container.right .content {
+    padding: 25px;
+    width: 94vw;
+  }
+  .container.right::after {
+    left: 2px;
+  }
+  .container.right::before {
+    left: 10px;
+    border-color: transparent #1da5fe transparent transparent;
+  }
+  .container.right .content {
+    border-radius: 15px;
+  }
+  /* about me */
+
+  #entete .right {
+    width: 80vw;
+    margin: 10px;
+  }
+  .right {
+    border-radius: 15px;
+  }
+  .container::before {
+    width: 16px;
+  }
+  .container.right .icon {
+    left: 25px;
+  }
+  /* contact */
+  .form-right form {
+    width: 40vw;
+  }
+  /* portfolio */
+  .card {
+    margin: 5%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  /* header */
+  header nav p {
+    font-size: 1rem;
+  }
+  /* about */
+  #entete .left {
+    display: none;
+  }
+  #entete p {
+    font-size: 13px;
+    line-height: 1.2;
+  }
+  .certificat {
+    grid-template-columns: 1fr;
+  }
+
+  .certif-item img {
+    width: 100%;
+  }
+
+  /* contact */
+  .form-left {
+    display: none;
+  }
+
+  .form-right form {
+    width: 90vw;
+  }
+  .direct-contact {
+    display: inline-block;
+  }
+  .direct-contact img {
+    width: 15vh;
+    margin-top: 10%;
+  }
+  /* Skills */
+
+  .skills {
+    margin-top: 20%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .skills img {
+    width: 16vw;
+  }
+  .skills p {
+    font-size: 1.2rem;
+  }
+
+  .flex-skills {
+    margin: 2%;
+  }
+
+  .flex-skills svg {
+    width: 20vw;
+  }
+
+  /*footer*/
+  footer svg {
+    width: 10vw;
+  }
+} /*fin */

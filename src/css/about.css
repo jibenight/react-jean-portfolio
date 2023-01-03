@@ -1,0 +1,185 @@
+/* style section about me */
+
+#entete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#entete p {
+  font-size: clamp(13px, 1.1vw, 16px);
+  line-height: 1.6rem;
+}
+
+#entete .left {
+  width: 30vw;
+}
+
+#entete .left img {
+  width: 25vw;
+}
+#entete .right {
+  width: clamp(60vw, 40vw, 50vw);
+}
+
+/* style expérience */
+
+.experience {
+  flex-direction: column;
+}
+
+.experience-titre {
+  text-align: center;
+  margin: 5%;
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background: #000;
+  top: 0;
+  bottom: 0;
+  /* left: 50%; */
+  margin-left: -1px;
+}
+
+.container {
+  padding: 15px 30px;
+  position: relative;
+  background: inherit;
+  /* width: 50%; */
+}
+
+/* .container.left {
+  left: 50%;
+}
+
+.container.right {
+  left: 50%;
+} */
+
+.container::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: calc(50% - 8px);
+  right: -8px;
+  background: #ffffff;
+  border: 2px solid #000;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.container.right::after {
+  left: -8px;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  top: calc(50% - 1px);
+  right: 8px;
+  background: #000;
+  z-index: 1;
+}
+
+.container.right::before {
+  left: 8px;
+}
+
+h4.date {
+  margin: 0px 0 5px 0;
+}
+
+.container .icon {
+  position: absolute;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  padding: 4px 0;
+  top: calc(50% - 20px);
+  border: 2px solid #000;
+  border-radius: 40px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #000;
+  z-index: 1;
+}
+
+.container.left .icon {
+  right: 56px;
+}
+
+.container.right .icon {
+  left: 56px;
+}
+
+.container .content {
+  padding: 30px 90px 30px 30px;
+  background: rgb(31, 162, 255);
+  background: rgb(31, 162, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(31, 162, 255, 1) 0%,
+    rgba(18, 216, 250, 1) 45%,
+    rgba(31, 162, 255, 1) 100%
+  );
+  position: relative;
+  border-radius: 25px;
+}
+
+.container.right .content {
+  padding: 30px 30px 30px 90px;
+  /* border-radius: 500px 0 0 500px; */
+}
+
+.container .content h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: white;
+}
+
+.container .content ul li {
+  list-style: disc;
+  margin: 15px 0;
+  line-height: 1.5;
+}
+
+/* style education  */
+.education {
+  flex-direction: column;
+  margin-top: 5%;
+}
+
+.education-titre {
+  text-align: center;
+}
+
+.certificat {
+  width: 100%;
+  height: auto;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 360px);
+  justify-content: center;
+  grid-gap: 10px;
+}
+
+.certif-item img {
+  width: 360px;
+}
