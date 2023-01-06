@@ -3,8 +3,11 @@ import chevron from './images/chevron.png';
 import arrowDown from './images/down-arrow.png';
 
 function App() {
+  //state
   const [count, setCount] = useState(0);
+  // Comportements
 
+  //rendu
   return (
     <main className='flex-centre animate__animated animate__fadeIn animate__delay-1s'>
       {/* zone d'accueil */}

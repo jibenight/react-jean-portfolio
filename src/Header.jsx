@@ -2,50 +2,65 @@ import { useState } from 'react';
 import chevron from './images/chevron.png';
 
 function Header() {
-  const buttonNav = ['nav-about', 'nav-portfolio', 'nav-contact', 'nav-skills'];
-  const [hide, setShow] = useState(true);
+  // state (état, données)
+  const [infos, setinfos] = useState([
+    {
+      id: 1,
+      name: 'nav-about',
+      text: 'À propos de moi',
+      alt: 'Chevron en gradient bleu du menu À propos de moi',
+    },
+    {
+      id: 2,
+      name: 'nav-portfolio',
+      text: 'Portfolio',
+      alt: 'Chevron en gradient bleu du menu portfolio',
+    },
+    {
+      id: 3,
+      name: 'nav-contact',
+      text: 'Contact',
+      alt: 'Chevron en gradient bleu du menu contact',
+    },
+    {
+      id: 4,
+      name: 'nav-skills',
+      text: 'Mes compétences',
+      alt: 'Chevron en gradient bleu du menu compétences',
+    },
+  ]);
 
-  const showContent = () => {};
+  // Comportements
+  const showContent = id => {
+    // show section by id
+    const elements = ['aboutMe', 'portfolio', 'contact', 'skills'];
+    if (id > 0 && id <= elements.length) {
+      document.getElementById(elements[id - 1]).style.display = 'block';
+    }
+    // hide main section
+    document.getElementById('home').style.display = 'none';
+    //show cancel button
+    document.getElementById('cancel').style.display = 'block';
+    //hide nav
+    document.querySelector('nav').style.display = 'none';
+  };
 
+  //affichage render
   return (
     <nav>
-      <div className='flex-centre'>
-        <p onClick={showContent} id='nav-about' className='target icon-cross'>
-          À propos de moi
-        </p>
-        <img
-          className='fade-in-image'
-          src={chevron}
-          alt='Chevron en gradient bleu du menu À propos de moi'
-        />
-      </div>
-
-      <div className='flex-centre icon-cross'>
-        <p id='nav-portfolio' className='icon-cross'>
-          Portfolio
-        </p>
-        <img
-          className='fade-in-image'
-          src={chevron}
-          alt='Chevron en gradient bleu du menu portfolio'
-        />
-      </div>
-      <div id='nav-contact' className='flex-centre'>
-        <p className='icon-cross'>Contact</p>
-        <img
-          className='fade-in-image'
-          src={chevron}
-          alt='Chevron en gradient bleu du menu contact'
-        />
-      </div>
-      <div id='nav-skills' className='flex-centre'>
-        <p className='icon-cross'>Mes compétences</p>
-        <img
-          className='fade-in-image'
-          src={chevron}
-          alt='Chevron en gradient bleu du menu compétences'
-        />
-      </div>
+      {infos.map(info => (
+        <div className='flex-centre'>
+          <p
+            onClick={() => showContent(info.id)}
+            key={info.id}
+            id={info.name}
+            className='icon-cross'
+          >
+            {info.text}
+          </p>
+          <img className='fade-in-image' src={chevron} alt={info.alt} />
+        </div>
+      ))}
     </nav>
   );
 }
