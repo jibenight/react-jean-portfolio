@@ -1,9 +1,20 @@
+import aboutImg from './images/about.jpg';
+import diplomeIfocop from './images/certificats/diplome_ifocop.jpg';
+import webDevelopment from './images/certificats/web_development.jpg';
+import javascriptCerf from './images/certificats/javascript_website.jpg';
+import nodeJs from './images/certificats/nodejs.jpg';
+import swift from './images/certificats/swift.jpg';
+import swiftUI from './images/certificats/SwiftUI.jpg';
+import git from './images/certificats/git.jpg';
+import ruby from './images/certificats/ruby.jpg';
+import bootstrap from './images/certificats/bootstrap.jpg';
+
 function About() {
   return (
     <section id='aboutMe'>
       <div id='entete'>
         <div className='left'>
-          <img src='./images/about.jpg' alt='' />
+          <img src={aboutImg} alt='' />
         </div>
         <div className='right'>
           <div className='titre'>
@@ -177,31 +188,40 @@ function About() {
         </div>
         <div className='certificat'>
           <div className='certif-item'>
-            <img src='./images/certificats/diplome_ifocop.jpg' alt='' />
+            <img
+              src={diplomeIfocop}
+              alt="Dîplome developpeur web de l'institut IFOCOP"
+            />
           </div>
           <div className='certif-item'>
-            <img src='./images/certificats/web_development.jpg' alt='' />
+            <img
+              src={webDevelopment}
+              alt='certificat codecademy en developpment web'
+            />
           </div>
           <div className='certif-item'>
-            <img src='./images/certificats/javascript_website.jpg' alt='' />
+            <img
+              src={javascriptCerf}
+              alt='certificat codecademy en javascript'
+            />
           </div>
           <div className='certif-item'>
-            <img src='./images/certificats/nodejs.jpg' alt='' />
+            <img src={nodeJs} alt='certificat codecademy en NodeJs' />
           </div>
           <div className='certif-item'>
-            <img src='./images/certificats/swift.jpg' alt='' />
+            <img src={swift} alt='certificat codecademy en swift' />
           </div>
           <div className='certif-item'>
-            <img src='./images/certificats/SwiftUI.jpg' alt='' />
+            <img src={swiftUI} alt='certificat codecademy en swift UI' />
           </div>
           <div className='certif-item'>
-            <img src='./images/certificats/git.jpg' alt='' />
+            <img src={git} alt='certificat codecademy en git' />
           </div>
           <div className='certif-item'>
-            <img src='./images/certificats/ruby.jpg' alt='' />
+            <img src={ruby} alt='certificat codecademy en ruby' />
           </div>
           <div className='certif-item'>
-            <img src='./images/certificats/bootstrap.jpg' alt='' />
+            <img src={bootstrap} alt='certificat codecademy en Bootstrap' />
           </div>
         </div>
       </div>
