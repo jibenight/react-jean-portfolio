@@ -50,6 +50,9 @@ function Header() {
     <nav>
       {infos.map(info => (
         <div className='flex-centre'>
+          <div id='cancel' className='icon-cross'>
+            <img id='chevron' src={chevron} alt='icon pour fermer la page' />
+          </div>
           <p
             onClick={() => showContent(info.id)}
             key={info.id}
