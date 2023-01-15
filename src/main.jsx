@@ -5,6 +5,7 @@ import About from './About';
 import Header from './Header';
 import Footer from './Footer';
 import Portfolio from './Portfolio';
+import Skills from './Skills';
 import './css/styles.css';
 
 ReactDOM.createRoot(document.getElementById('header')).render(
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
     <About />
     <Portfolio />
+    <Skills />
   </React.StrictMode>
 );
 

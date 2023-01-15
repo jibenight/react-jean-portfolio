@@ -4,14 +4,24 @@ import arrowDown from './images/down-arrow.png';
 
 function App() {
   //state
-  const [count, setCount] = useState(0);
+
   // Comportements
+  const closePage = () => {
+    document.getElementById('home').style.display = 'flex';
+    document.querySelector('nav').style.display = 'block';
+    const elements = ['aboutMe', 'portfolio', 'contact', 'skills', 'cancel'];
+    elements.map(element => {
+      if (document.getElementById(element)) {
+        document.getElementById(element).style.display = 'none';
+      }
+    });
+  };
 
   //rendu
   return (
     <main className='flex-centre animate__animated animate__fadeIn animate__delay-1s'>
       {/* zone d'accueil */}
-      <div id='cancel' className='icon-cross'>
+      <div id='cancel' onClick={closePage} className='icon-cross'>
         <img id='chevron' src={chevron} alt='icon pour fermer la page' />
       </div>
       <div id='arrow-down'>
