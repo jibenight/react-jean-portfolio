@@ -14,6 +14,9 @@ function App() {
       if (document.getElementById(element)) {
         document.getElementById(element).style.display = 'none';
       }
+      if (element == 'skills' || element == 'aboutMe') {
+        document.getElementById('arrow-down').style.display = 'none';
+      }
     });
   };
 

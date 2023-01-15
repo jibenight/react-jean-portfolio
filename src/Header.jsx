@@ -39,6 +39,10 @@ function Header() {
       if (skills) {
         document.getElementById('skills-techno').style.display = 'block';
       }
+
+      if (id == 4 || id == 1) {
+        document.getElementById('arrow-down').style.display = 'block';
+      }
     }
     // hide main section
     document.getElementById('home').style.display = 'none';
@@ -52,10 +56,9 @@ function Header() {
   return (
     <nav>
       {infos.map(info => (
-        <div className='flex-centre'>
+        <div className='flex-centre' key={info.id}>
           <p
             onClick={() => showContent(info.id)}
-            key={info.id}
             id={info.name}
             className='icon-cross'
           >

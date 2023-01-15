@@ -6,6 +6,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Portfolio from './Portfolio';
 import Skills from './Skills';
+import Contact from './Contact';
 import './css/styles.css';
 
 ReactDOM.createRoot(document.getElementById('header')).render(
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <About />
     <Portfolio />
     <Skills />
+    <Contact />
   </React.StrictMode>
 );
 
