@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import dataPortfolio from './Dataportfolio';
+import dataPortfolio from '../Dataportfolio';
 
 function Portfolio() {
   // state

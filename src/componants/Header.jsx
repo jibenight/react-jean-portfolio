@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import chevron from './images/chevron.png';
+import chevron from '../images/chevron.png';
 
 function Header() {
   // state (état, données)
@@ -52,25 +52,27 @@ function Header() {
     //hide nav
     document.querySelector('nav').style.display = 'none';
     //show Footer
-    document.querySelector('footer').style.display = 'block';
+    document.querySelector('footer').style.display = 'flex';
   };
 
   //affichage render
   return (
-    <nav>
-      {infos.map(info => (
-        <div className='flex-centre' key={info.id}>
-          <p
-            onClick={() => showContent(info.id)}
-            id={info.name}
-            className='icon-cross'
-          >
-            {info.text}
-          </p>
-          <img className='fade-in-image' src={chevron} alt={info.alt} />
-        </div>
-      ))}
-    </nav>
+    <header>
+      <nav>
+        {infos.map(info => (
+          <div className='flex-centre' key={info.id}>
+            <p
+              onClick={() => showContent(info.id)}
+              id={info.name}
+              className='icon-cross'
+            >
+              {info.text}
+            </p>
+            <img className='fade-in-image' src={chevron} alt={info.alt} />
+          </div>
+        ))}
+      </nav>
+    </header>
   );
 }
 

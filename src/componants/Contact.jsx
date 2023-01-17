@@ -1,8 +1,8 @@
 //rendu
-import about from './images/about.jpg';
-import phone from './images/phone-call.png';
-import pin from './images/pin.png';
-import email from './images/email.png';
+import about from '../images/about.jpg';
+import phone from '../images/phone-call.png';
+import pin from '../images/pin.png';
+import email from '../images/email.png';
 
 function Contact() {
   return (

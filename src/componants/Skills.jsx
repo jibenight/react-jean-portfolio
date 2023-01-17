@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import focus from './images/competences/focus.png';
-import workingAtHome from './images/competences/working-at-home.png';
-import direction from './images/competences/direction.png';
-import communication from './images/competences/communication.png';
-import teamLeader from './images/competences/team-leader.png';
-import dashboard from './images/competences/dashboard.png';
-import student from './images/competences/student.png';
-import flag from './images/competences/flag.png';
+import focus from '../images/competences/focus.png';
+import workingAtHome from '../images/competences/working-at-home.png';
+import direction from '../images/competences/direction.png';
+import communication from '../images/competences/communication.png';
+import teamLeader from '../images/competences/team-leader.png';
+import dashboard from '../images/competences/dashboard.png';
+import student from '../images/competences/student.png';
+import flag from '../images/competences/flag.png';
 
 function Skills() {
   // state (état, données)

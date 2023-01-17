@@ -254,7 +254,7 @@ section#home {
 }
 
 /* style footer  */
-footer :first-child {
+footer {
   height: 100px;
   display: flex;
   justify-content: space-between;
@@ -264,20 +264,20 @@ footer > * {
   margin: 0 4%;
 }
 
-footer :first-child ul {
+footer ul {
   display: flex;
   margin: 0;
 }
 
-footer :first-child li {
+footer li {
   margin-right: 10px;
 }
 
-footer :first-child li a {
+footer li a {
   color: #1fa2ff;
 }
 
-footer :first-child svg {
+footer svg {
   width: 3vw;
 }
 

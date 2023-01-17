@@ -1,3 +1,10 @@
+import Home from './componants/Home';
+import About from './componants/About';
+
+import Portfolio from './componants/Portfolio';
+import Skills from './componants/Skills';
+import Contact from './componants/Contact';
+
 import chevron from './images/chevron.png';
 import arrowDown from './images/down-arrow.png';
 import cancel from './images/cancel.png';
@@ -36,22 +43,11 @@ function Main() {
         <img id='arrow-animation' src={arrowDown} alt='' />
       </div>
 
-      <section id='home'>
-        <div className='home-left'>
-          {/* <img src="./images/banner_bg.jpg" alt="" /> */}
-        </div>
-        <div className='home-right'>
-          <div className='text-focus-in'>
-            <h1>
-              I'm
-              <br />
-              Jean
-              <br />
-              Nguyen
-            </h1>
-          </div>
-        </div>
-      </section>
+      <Home />
+      <About />
+      <Portfolio />
+      <Skills />
+      <Contact />
     </main>
   );
 }

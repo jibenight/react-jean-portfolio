@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div>
+    <footer>
       <div>
         <p>Copyright &#169; 2021. All Rights Reserved</p>
       </div>
@@ -29,7 +29,7 @@ function Footer() {
           </li>
         </ul>
       </div>
-    </div>
+    </footer>
   );
 }
 
