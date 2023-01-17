@@ -1,5 +1,6 @@
 import chevron from './images/chevron.png';
 import arrowDown from './images/down-arrow.png';
+import cancel from './images/cancel.png';
 
 function Main() {
   //state
@@ -29,7 +30,7 @@ function Main() {
     <main className='flex-centre animate__animated animate__fadeIn animate__delay-1s'>
       {/* zone d'accueil */}
       <div id='cancel' onClick={closePage} className='icon-cross'>
-        <img id='chevron' src={chevron} alt='icon pour fermer la page' />
+        <img id='chevron' src={cancel} alt='icon pour fermer la page' />
       </div>
       <div id='arrow-down' className='animate__animated'>
         <img id='arrow-animation' src={arrowDown} alt='' />

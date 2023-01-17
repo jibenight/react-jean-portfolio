@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import chevron from './images/chevron.png';
-// import 'animate.css';
 
 function Header() {
   // state (état, données)
