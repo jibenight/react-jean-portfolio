@@ -16,7 +16,6 @@ section#portfolio {
   align-items: center;
   flex-wrap: wrap;
   z-index: 10;
-  margin-bottom: 5%;
 }
 
 /* style des cards projet/portfolio */

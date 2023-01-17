@@ -6,7 +6,7 @@
 @import url('./header.css');
 @import url('./portfolio.css');
 @import url('./skills.css');
-@import url('./animate.css');
+/* @import url('./animate.css'); */
 /* @import url('../../node_modules/animate.css/animate.min.css'); */
 
 /* gradiant icon hand
@@ -254,30 +254,30 @@ section#home {
 }
 
 /* style footer  */
-footer {
-  background-color: #f8f8f8;
+footer :first-child {
   height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 footer > * {
-  margin: 4%;
+  margin: 0 4%;
 }
 
-footer ul {
+footer :first-child ul {
   display: flex;
+  margin: 0;
 }
 
-footer li {
+footer :first-child li {
   margin-right: 10px;
 }
 
-footer li a {
+footer :first-child li a {
   color: #1fa2ff;
 }
 
-footer svg {
+footer :first-child svg {
   width: 3vw;
 }
 
@@ -308,4 +308,5 @@ section#skills {
 
 footer {
   display: none;
+  background-color: #f8f8f8;
 }

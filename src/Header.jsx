@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import chevron from './images/chevron.png';
+// import 'animate.css';
 
 function Header() {
   // state (état, données)
@@ -42,6 +43,7 @@ function Header() {
 
       if (id == 4 || id == 1) {
         document.getElementById('arrow-down').style.display = 'block';
+        // animateCSS('#arrow-animation', 'shakeY', '#arrow-animation', 'shakeY');
       }
     }
     // hide main section
@@ -50,6 +52,8 @@ function Header() {
     document.getElementById('cancel').style.display = 'block';
     //hide nav
     document.querySelector('nav').style.display = 'none';
+    //show Footer
+    document.querySelector('footer').style.display = 'block';
   };
 
   //affichage render
