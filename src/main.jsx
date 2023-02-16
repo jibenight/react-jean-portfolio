@@ -17,7 +17,7 @@ function Main({ component }) {
         <img id='arrow-animation' src={arrowDown} alt='' />
       </div>
 
-      {/* <DisplayedComponent component={component} /> */}
+      <DisplayedComponent component={component} />
     </main>
   );
 }
