@@ -81,3 +81,7 @@ nav div:nth-child(4) img {
 nav img {
   width: 4vw;
 }
+
+nav a {
+  color: black;
+}

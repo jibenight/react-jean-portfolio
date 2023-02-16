@@ -150,7 +150,6 @@ button {
 }
 
 #cancel {
-  display: none;
   z-index: 99;
 }
 
@@ -287,22 +286,18 @@ section {
 }
 
 section#aboutMe {
-  display: none;
   width: 100vw;
 }
 
 section#portfolio {
-  display: none;
   width: 100vw;
 }
 
 section#contact {
-  display: none;
   width: 100vw;
 }
 
 section#skills {
-  display: none;
   width: 100vw;
 }
 
