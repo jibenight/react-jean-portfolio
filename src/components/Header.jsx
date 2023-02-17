@@ -3,10 +3,10 @@ import chevron from '../images/chevron.png';
 
 function Header({ setActiveComponent }) {
   const components = [
-    { name: 'about', label: 'À propos de moi' },
-    { name: 'portfolio', label: 'Portfolio' },
-    { name: 'contact', label: 'Contact' },
-    { name: 'skills', label: 'Mes compétences' },
+    { name: 'About', label: 'À propos de moi', key: '1' },
+    { name: 'Portfolio', label: 'Portfolio', key: '2' },
+    { name: 'Contact', label: 'Contact', key: '3' },
+    { name: 'Skills', label: 'Mes compétences', key: '4' },
   ];
 
   const handleNavClick = componentName => {
@@ -22,7 +22,7 @@ function Header({ setActiveComponent }) {
         aria-label='main navigation'
       >
         {components.map(component => (
-          <div className='flex-centre'>
+          <div className='flex-centre' key={component.key}>
             <p
               key={component.name}
               onClick={() => handleNavClick(component.name)}

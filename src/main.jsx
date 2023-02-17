@@ -11,21 +11,21 @@ import cancel from './images/cancel.png';
 
 function Main() {
   //state
-  const [activeComponent, setActiveComponent] = useState(<Home />);
+  const [activeComponent, setActiveComponent] = useState('Home');
   const [isNavHidden, setIsNavHidden] = useState(false);
   const [showHiddenComponent, setShowHiddenComponent] = useState(false);
 
   //Comportements
   const handleComponentClick = componentName => {
     setIsNavHidden(true);
-    setActiveComponent(componentName);
+    setActiveComponent(components);
     setShowHiddenComponent(true);
   };
 
   const handleShowNavClick = () => {
     setIsNavHidden(false);
     setShowHiddenComponent(false);
-    setActiveComponent(<Home />);
+    setActiveComponent('Home');
   };
 
   const components = {
@@ -57,12 +57,8 @@ function Main() {
         </div>
 
         {!isNavHidden && <ActiveComponent />}
+        {isNavHidden && showHiddenComponent && <ActiveComponent />}
         {showHiddenComponent && (
-          <div id='cancel' className='icon-cross' onClick={handleShowNavClick}>
-            <img id='chevron' src={cancel} alt='icon pour fermer la page' />
-          </div>
-        )}
-        {!isNavHidden && showHiddenComponent && (
           <div id='cancel' className='icon-cross' onClick={handleShowNavClick}>
             <img id='chevron' src={cancel} alt='icon pour fermer la page' />
           </div>
