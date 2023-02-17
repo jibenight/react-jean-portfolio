@@ -15,6 +15,7 @@ function Main() {
   const [isNavHidden, setIsNavHidden] = useState(false);
   const [showHiddenComponent, setShowHiddenComponent] = useState(false);
 
+  //Comportements
   const handleComponentClick = componentName => {
     setIsNavHidden(true);
     setActiveComponent(componentName);
