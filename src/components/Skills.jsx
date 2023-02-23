@@ -7,6 +7,7 @@ import teamLeader from '../images/competences/team-leader.png';
 import dashboard from '../images/competences/dashboard.png';
 import student from '../images/competences/student.png';
 import flag from '../images/competences/flag.png';
+import { motion as m } from 'framer-motion';
 
 function Skills() {
   // state (état, données)
@@ -56,7 +57,12 @@ function Skills() {
 
   //rendu
   return (
-    <section id='skills'>
+    <m.section
+      initial={{ y: '100%' }}
+      animate={{ y: '0%' }}
+      transition={{ duration: 0.75, ease: 'easeOut' }}
+      id='skills'
+    >
       <div className='skills-animations'>
         <div className='titre'>
           <h2>Mes Compétences</h2>
@@ -238,7 +244,7 @@ function Skills() {
           </div>
         </div>
       </div>
-    </section>
+    </m.section>
   );
 }
 

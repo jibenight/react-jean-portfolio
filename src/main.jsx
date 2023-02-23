@@ -7,7 +7,7 @@ import Header from './components/Header';
 import Portfolio from './components/Portfolio';
 import Skills from './components/Skills';
 import Footer from './components/Footer';
-import cancel from './images/cancel.png';
+import Close from './components/Close';
 
 function Main() {
   //state
@@ -18,7 +18,7 @@ function Main() {
   //Comportements
   const handleComponentClick = componentName => {
     setIsNavHidden(true);
-    setActiveComponent(components);
+    setActiveComponent(componentName);
     setShowHiddenComponent(true);
   };
 
@@ -38,6 +38,8 @@ function Main() {
 
   const ActiveComponent = components[activeComponent] || Home;
 
+  console.log(components['About']);
+
   // Comportements
   document.onscroll = () => {
     const arrowDownEl = document.getElementById('arrow-down');
@@ -48,8 +50,9 @@ function Main() {
 
   //rendu
   return (
-    <div>
-      <Header setActiveComponent={handleComponentClick} />
+    <>
+      {!isNavHidden && <Header setActiveComponent={handleComponentClick} />}
+
       <main className='flex-centre animate__animated animate__fadeIn animate__delay-1s'>
         {/* zone d'accueil */}
         <div id='arrow-down' className='animate__animated'>
@@ -57,15 +60,13 @@ function Main() {
         </div>
 
         {!isNavHidden && <ActiveComponent />}
+
         {isNavHidden && showHiddenComponent && <ActiveComponent />}
-        {showHiddenComponent && (
-          <div id='cancel' className='icon-cross' onClick={handleShowNavClick}>
-            <img id='chevron' src={cancel} alt='icon pour fermer la page' />
-          </div>
-        )}
+
+        {showHiddenComponent && <Close onClick={handleShowNavClick} />}
       </main>
       <Footer />
-    </div>
+    </>
   );
 }
 

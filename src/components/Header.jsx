@@ -24,7 +24,7 @@ function Header({ setActiveComponent }) {
         {components.map(component => (
           <div className='flex-centre' key={component.key}>
             <p
-              key={component.name}
+              name={component.name}
               onClick={() => handleNavClick(component.name)}
             >
               {component.label}

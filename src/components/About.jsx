@@ -13,7 +13,12 @@ import { motion as m } from 'framer-motion';
 function About() {
   return (
     <section id='aboutMe'>
-      <div id='entete'>
+      <m.div
+        initial={{ y: '-100%' }}
+        animate={{ y: '0%' }}
+        transition={{ duration: 0.75, ease: 'easeOut' }}
+        id='entete'
+      >
         <div className='left'>
           <img src={aboutImg} alt='jean en noir et blanc' />
         </div>
@@ -49,7 +54,7 @@ function About() {
             <button className='btn-grad'>Télécharger mon CV</button>
           </a>
         </div>
-      </div>
+      </m.div>
 
       <div className='experience flex-centre'>
         <div className='experience-titre'>

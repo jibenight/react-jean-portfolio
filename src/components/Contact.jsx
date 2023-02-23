@@ -3,10 +3,16 @@ import about from '../images/about.jpg';
 import phone from '../images/phone-call.png';
 import pin from '../images/pin.png';
 import email from '../images/email.png';
+import { motion as m } from 'framer-motion';
 
 function Contact() {
   return (
-    <section id='contact'>
+    <m.section
+      initial={{ x: '100%' }}
+      animate={{ x: '0%' }}
+      transition={{ duration: 0.75, ease: 'easeOut' }}
+      id='contact'
+    >
       <div className='contact-titre'>
         <div id='contact-animation'>
           <div className='titre'>
@@ -76,7 +82,7 @@ function Contact() {
           </div>
         </div>
       </div>
-    </section>
+    </m.section>
   );
 }
 

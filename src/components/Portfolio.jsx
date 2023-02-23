@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import dataPortfolio from '../Dataportfolio';
+import { motion as m } from 'framer-motion';
 
 function Portfolio() {
   // state
@@ -7,7 +8,12 @@ function Portfolio() {
 
   //render
   return (
-    <section id='portfolio'>
+    <m.section
+      initial={{ x: '-100%' }}
+      animate={{ x: '0%' }}
+      transition={{ duration: 0.75, ease: 'easeOut' }}
+      id='portfolio'
+    >
       <div className='portfolio-titre'>
         <div className='titre'>
           <h2>Portfolio</h2>
@@ -37,7 +43,7 @@ function Portfolio() {
           </div>
         ))}
       </div>
-    </section>
+    </m.section>
   );
 }
 
