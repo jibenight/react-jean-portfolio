@@ -1,6 +1,14 @@
+import { motion as m } from 'framer-motion';
+
 function Home() {
   return (
-    <section id='home'>
+    <m.section
+      initial={{ y: '-100%' }}
+      animate={{ y: '0%' }}
+      exit={{ y: '-100%' }}
+      transition={{ duration: 0.75, ease: 'easeOut' }}
+      id='home'
+    >
       <div className='home-left'>
         {/* <img src="./images/banner_bg.jpg" alt="" /> */}
       </div>
@@ -15,7 +23,7 @@ function Home() {
           </h1>
         </div>
       </div>
-    </section>
+    </m.section>
   );
 }
 

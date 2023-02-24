@@ -8,56 +8,54 @@ import swiftUI from '../images/certificats/SwiftUI.jpg';
 import git from '../images/certificats/git.jpg';
 import ruby from '../images/certificats/ruby.jpg';
 import bootstrap from '../images/certificats/bootstrap.jpg';
-import { AnimatePresence, motion as m } from 'framer-motion';
+import { motion as m } from 'framer-motion';
 
 function About() {
   return (
     <section id='aboutMe'>
-      <AnimatePresence>
-        <m.div
-          initial={{ y: '-100%' }}
-          animate={{ y: '0%' }}
-          exit={{ y: '-100%' }}
-          transition={{ duration: 0.75, ease: 'easeOut' }}
-          id='entete'
-        >
-          <div className='left'>
-            <img src={aboutImg} alt='jean en noir et blanc' />
+      <m.div
+        initial={{ y: '-100%' }}
+        animate={{ y: '0%' }}
+        exit={{ y: '-100%' }}
+        transition={{ duration: 0.75, ease: 'easeOut' }}
+        id='entete'
+      >
+        <div className='left'>
+          <img src={aboutImg} alt='jean en noir et blanc' />
+        </div>
+        <div className='right'>
+          <div className='titre'>
+            <h2>À propos de moi</h2>
+            <p>Who I am</p>
           </div>
-          <div className='right'>
-            <div className='titre'>
-              <h2>À propos de moi</h2>
-              <p>Who I am</p>
-            </div>
-            <p>
-              De nature curieuse, j’aime apprendre de nouvelles choses. Ce qui
-              m’est grandement utile dans le milieu de l’informatique. Issue du
-              domaine commercial, je me suis reconvertie dans le développement
-              web car j’ai toujours été un passionné d’informatique et je
-              voulais plutôt concevoir que ventre des choses.
-            </p>
-            <br />
-            <p>
-              De nature calme et pédagogue, j’aime transmettre mon savoir et mon
-              expérience professionnelle. Ce qui m’a conduit à enseigner des
-              langages comme le HTML et CSS3 ou des notions plus générales dans
-              le domaine du digital.
-            </p>
-            <br />
-            <p>
-              Dans mon temps libre, tu peux me trouver au cinéma, en train de
-              jouer à la console ou de prendre un avion pour une destination à
-              l’autre bout du monde. J’aime aussi me retrouver avec mes amis
-              pour partager un bon repas accompagné d’un bon verre. Je ne suis
-              pas difficile à convaincre quand il s’agit de sortir.{' '}
-            </p>
+          <p>
+            De nature curieuse, j’aime apprendre de nouvelles choses. Ce qui
+            m’est grandement utile dans le milieu de l’informatique. Issue du
+            domaine commercial, je me suis reconvertie dans le développement web
+            car j’ai toujours été un passionné d’informatique et je voulais
+            plutôt concevoir que ventre des choses.
+          </p>
+          <br />
+          <p>
+            De nature calme et pédagogue, j’aime transmettre mon savoir et mon
+            expérience professionnelle. Ce qui m’a conduit à enseigner des
+            langages comme le HTML et CSS3 ou des notions plus générales dans le
+            domaine du digital.
+          </p>
+          <br />
+          <p>
+            Dans mon temps libre, tu peux me trouver au cinéma, en train de
+            jouer à la console ou de prendre un avion pour une destination à
+            l’autre bout du monde. J’aime aussi me retrouver avec mes amis pour
+            partager un bon repas accompagné d’un bon verre. Je ne suis pas
+            difficile à convaincre quand il s’agit de sortir.{' '}
+          </p>
 
-            <a href='../images/CV-Jean-Nguyen.pdf' target='_blank'>
-              <button className='btn-grad'>Télécharger mon CV</button>
-            </a>
-          </div>
-        </m.div>
-      </AnimatePresence>
+          <a href='../images/CV-Jean-Nguyen.pdf' target='_blank'>
+            <button className='btn-grad'>Télécharger mon CV</button>
+          </a>
+        </div>
+      </m.div>
 
       <div className='experience flex-centre'>
         <div className='experience-titre'>

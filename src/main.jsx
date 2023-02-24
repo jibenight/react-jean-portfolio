@@ -56,16 +56,16 @@ function Main() {
         <div id='arrow-down' className='animate__animated'>
           <img id='arrow-animation' src={arrowDown} alt='' />
         </div>
-
-        {!isNavHidden && <ActiveComponent />}
         <AnimatePresence>
+          {!isNavHidden && <ActiveComponent />}
+
           {isNavHidden && showHiddenComponent && (
             <ActiveComponent key={activeComponent} />
           )}
         </AnimatePresence>
         {showHiddenComponent && <Close onClick={handleShowNavClick} />}
       </main>
-      <Footer />
+      {activeComponent !== 'Home' && <Footer />}
     </>
   );
 }

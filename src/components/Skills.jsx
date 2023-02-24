@@ -60,6 +60,7 @@ function Skills() {
     <m.section
       initial={{ y: '100%' }}
       animate={{ y: '0%' }}
+      exit={{ y: '100%' }}
       transition={{ duration: 0.75, ease: 'easeOut' }}
       id='skills'
     >
