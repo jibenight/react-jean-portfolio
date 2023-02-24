@@ -8,6 +8,7 @@ import Portfolio from './components/Portfolio';
 import Skills from './components/Skills';
 import Footer from './components/Footer';
 import Close from './components/Close';
+import { AnimatePresence, motion as m } from 'framer-motion';
 
 function Main() {
   //state
@@ -38,8 +39,6 @@ function Main() {
 
   const ActiveComponent = components[activeComponent] || Home;
 
-  console.log(components['About']);
-
   // Comportements
   document.onscroll = () => {
     const arrowDownEl = document.getElementById('arrow-down');
@@ -52,7 +51,6 @@ function Main() {
   return (
     <>
       {!isNavHidden && <Header setActiveComponent={handleComponentClick} />}
-
       <main className='flex-centre animate__animated animate__fadeIn animate__delay-1s'>
         {/* zone d'accueil */}
         <div id='arrow-down' className='animate__animated'>
@@ -60,9 +58,11 @@ function Main() {
         </div>
 
         {!isNavHidden && <ActiveComponent />}
-
-        {isNavHidden && showHiddenComponent && <ActiveComponent />}
-
+        <AnimatePresence>
+          {isNavHidden && showHiddenComponent && (
+            <ActiveComponent key={activeComponent} />
+          )}
+        </AnimatePresence>
         {showHiddenComponent && <Close onClick={handleShowNavClick} />}
       </main>
       <Footer />

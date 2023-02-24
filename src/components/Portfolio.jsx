@@ -9,8 +9,9 @@ function Portfolio() {
   //render
   return (
     <m.section
-      initial={{ x: '-100%' }}
-      animate={{ x: '0%' }}
+      initial={{ opacity: 0, x: '-100%' }}
+      animate={{ opacity: 1, x: '0%' }}
+      exit={{ opacity: 0, x: '-100%' }}
       transition={{ duration: 0.75, ease: 'easeOut' }}
       id='portfolio'
     >
