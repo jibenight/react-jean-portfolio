@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import chevron from '../images/chevron.png';
 
 function Header({ setActiveComponent }) {

@@ -15,12 +15,47 @@ function Main() {
   const [activeComponent, setActiveComponent] = useState('Home');
   const [isNavHidden, setIsNavHidden] = useState(false);
   const [showHiddenComponent, setShowHiddenComponent] = useState(false);
+  const [componentMotion, setComponentMotion] = useState({
+    Home: {
+      initial: { x: '-100%' },
+      animate: { x: '0%' },
+      exit: { x: '-100%' },
+    },
+    About: {
+      initial: { y: '-100%' },
+      animate: { y: '0%' },
+      exit: { y: '-100%' },
+    },
+    Contact: {
+      initial: { x: '100%' },
+      animate: { x: '0%' },
+      exit: { x: '100%' },
+    },
+    Skills: {
+      initial: { y: '100%' },
+      animate: { y: '0%' },
+      exit: { y: '100%' },
+    },
+    Portfolio: {
+      initial: { x: '-100%' },
+      animate: { x: '0%' },
+      exit: { x: '-100%' },
+    },
+  });
 
   //Comportements
   const handleComponentClick = componentName => {
     setIsNavHidden(true);
     setActiveComponent(componentName);
     setShowHiddenComponent(true);
+    setComponentMotion(prevState => ({
+      ...prevState,
+      [componentName]: {
+        initial: { x: '-100%' },
+        animate: { x: '0%' },
+        exit: { x: '-100%' },
+      },
+    }));
   };
 
   const handleShowNavClick = () => {
@@ -57,10 +92,18 @@ function Main() {
           <img id='arrow-animation' src={arrowDown} alt='' />
         </div>
         <AnimatePresence>
-          {!isNavHidden && <ActiveComponent />}
+          {!isNavHidden && (
+            <ActiveComponent
+              key={activeComponent}
+              motionAttributes={componentMotion}
+            />
+          )}
 
           {isNavHidden && showHiddenComponent && (
-            <ActiveComponent key={activeComponent} />
+            <ActiveComponent
+              key={activeComponent}
+              motionAttributes={componentMotion}
+            />
           )}
         </AnimatePresence>
         {showHiddenComponent && <Close onClick={handleShowNavClick} />}

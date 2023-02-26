@@ -1,11 +1,12 @@
 import { motion as m } from 'framer-motion';
 
-function Home() {
+function Home({ motionAttributes }) {
+  const { initial, animate, exit } = motionAttributes.Home;
   return (
     <m.section
-      initial={{ y: '-100%' }}
-      animate={{ y: '0%' }}
-      exit={{ y: '-100%' }}
+      initial={initial}
+      animate={animate}
+      exit={exit}
       transition={{ duration: 0.75, ease: 'easeOut' }}
       id='home'
     >
