@@ -5,12 +5,14 @@ import pin from '../images/pin.png';
 import email from '../images/email.png';
 import { motion as m } from 'framer-motion';
 
-function Contact() {
+function Contact({ motionAttributes }) {
+  const { initial, animate, exit } = motionAttributes.Contact;
+  console.log(initial);
   return (
     <m.section
-      initial={{ x: '100%' }}
-      animate={{ x: '0%' }}
-      exit={{ x: '100%' }}
+      initial={initial}
+      animate={animate}
+      exit={exit}
       transition={{ duration: 0.75, ease: 'easeOut' }}
       id='contact'
     >

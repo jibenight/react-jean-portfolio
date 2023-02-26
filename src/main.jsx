@@ -17,9 +17,9 @@ function Main() {
   const [showHiddenComponent, setShowHiddenComponent] = useState(false);
   const [componentMotion, setComponentMotion] = useState({
     Home: {
-      initial: { x: '-100%' },
+      initial: { x: '100%' },
       animate: { x: '0%' },
-      exit: { x: '-100%' },
+      exit: { x: '100%' },
     },
     About: {
       initial: { y: '-100%' },
@@ -27,9 +27,9 @@ function Main() {
       exit: { y: '-100%' },
     },
     Contact: {
-      initial: { x: '100%' },
-      animate: { x: '0%' },
-      exit: { x: '100%' },
+      initial: { y: '100%' },
+      animate: { y: '0%' },
+      exit: { y: '100%' },
     },
     Skills: {
       initial: { y: '100%' },
@@ -51,9 +51,9 @@ function Main() {
     setComponentMotion(prevState => ({
       ...prevState,
       [componentName]: {
-        initial: { x: '-100%' },
+        initial: { x: '100%' },
         animate: { x: '0%' },
-        exit: { x: '-100%' },
+        exit: { x: '100%' },
       },
     }));
   };

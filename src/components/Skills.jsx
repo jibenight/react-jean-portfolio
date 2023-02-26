@@ -9,8 +9,9 @@ import student from '../images/competences/student.png';
 import flag from '../images/competences/flag.png';
 import { motion as m } from 'framer-motion';
 
-function Skills() {
+function Skills({ motionAttributes }) {
   // state (état, données)
+  const { initial, animate, exit } = motionAttributes.Skills;
   const [infosu, setinfos] = useState([
     {
       image: focus,
@@ -53,14 +54,12 @@ function Skills() {
       alt: '',
     },
   ]);
-  // Comportements
-
   //rendu
   return (
     <m.section
-      initial={{ y: '100%' }}
-      animate={{ y: '0%' }}
-      exit={{ y: '100%' }}
+      initial={initial}
+      animate={animate}
+      exit={exit}
       transition={{ duration: 0.75, ease: 'easeOut' }}
       id='skills'
     >
