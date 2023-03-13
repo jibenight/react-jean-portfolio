@@ -3,19 +3,21 @@ if (typeof PhusionPassenger !== 'undefined') {
   PhusionPassenger.configure({ autoInstall: false });
 }
 
-require('dotenv').config();
-const express = require('express');
-const nodemailer = require('nodemailer');
-const path = require('path');
+import * as dotenv from 'dotenv';
+dotenv.config();
+import express from 'express';
+import nodemailer from 'nodemailer';
+// const path = require('path');
+import path from 'path';
 const app = express();
 const port = 3000;
 let folder;
 let error404 = true;
-
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 // enable static files pointing to the folder "src"
 // this can be used to serve the index.html file
 if (process.env.NODE_ENV !== 'production') {
-  folder = '/src';
+  folder = 'index.html';
   console.log('Mode Development');
 } else {
   folder = '/dist';
