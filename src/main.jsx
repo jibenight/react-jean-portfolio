@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import arrowDown from './images/down-arrow.png';
+import Arrow from './components/Arrow';
 import About from './components/About';
 import Contact from './components/Contact';
 import Home from './components/Home';
@@ -8,18 +8,20 @@ import Portfolio from './components/Portfolio';
 import Skills from './components/Skills';
 import Footer from './components/Footer';
 import Close from './components/Close';
-import { AnimatePresence, motion as m } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 function Main() {
-  //state
+  //états
   const [activeComponent, setActiveComponent] = useState('Home');
   const [isNavHidden, setIsNavHidden] = useState(false);
   const [showHiddenComponent, setShowHiddenComponent] = useState(false);
+  const [isOneSecondPassed, setIsOneSecondPassed] = useState(false);
+  //animations
   const [componentMotion, setComponentMotion] = useState({
     Home: {
-      initial: { x: '100%' },
-      animate: { x: '0%' },
-      exit: { x: '100%' },
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      exit: { opacity: 0 },
     },
     About: {
       initial: { y: '-100%' },
@@ -27,9 +29,9 @@ function Main() {
       exit: { y: '-100%' },
     },
     Contact: {
-      initial: { y: '100%' },
-      animate: { y: '0%' },
-      exit: { y: '100%' },
+      initial: { x: '100%' },
+      animate: { x: '0%' },
+      exit: { x: '100%' },
     },
     Skills: {
       initial: { y: '100%' },
@@ -44,26 +46,25 @@ function Main() {
   });
 
   //Comportements
+  //cache la nav et affiche le composant cliqué
   const handleComponentClick = componentName => {
     setIsNavHidden(true);
     setActiveComponent(componentName);
     setShowHiddenComponent(true);
-    setComponentMotion(prevState => ({
-      ...prevState,
-      [componentName]: {
-        initial: { x: '100%' },
-        animate: { x: '0%' },
-        exit: { x: '100%' },
-      },
-    }));
+    //affiche la flèche après 1 seconde
+    setTimeout(() => setIsOneSecondPassed(true), 1000);
   };
-
+  //affiche la nav et le composant Home
   const handleShowNavClick = () => {
+    //scroll to top
+    window.scrollTo(0, top);
+    //reset
     setIsNavHidden(false);
     setShowHiddenComponent(false);
     setActiveComponent('Home');
   };
 
+  //composants
   const components = {
     Home,
     About,
@@ -72,33 +73,25 @@ function Main() {
     Portfolio,
   };
 
-  const ActiveComponent = components[activeComponent] || Home;
-
-  // Comportements
-  document.onscroll = () => {
-    const arrowDownEl = document.getElementById('arrow-down');
-    if (arrowDownEl) {
-      arrowDownEl.style.display = 'none';
-    }
-  };
+  //composant actif
+  const ActiveComponent = components[activeComponent];
 
   //rendu
   return (
     <>
+      {/* header */}
       {!isNavHidden && <Header setActiveComponent={handleComponentClick} />}
-      <main className='flex-centre animate__animated animate__fadeIn animate__delay-1s'>
-        {/* zone d'accueil */}
-        <div id='arrow-down' className='animate__animated'>
-          <img id='arrow-animation' src={arrowDown} alt='' />
-        </div>
-        <AnimatePresence>
+      <main className='flex-centre'>
+        {/* flèche */}
+        {activeComponent !== 'Home' && isOneSecondPassed && <Arrow />}
+        {/* composant actif */}
+        <AnimatePresence mode='sync'>
           {!isNavHidden && (
             <ActiveComponent
               key={activeComponent}
               motionAttributes={componentMotion}
             />
           )}
-
           {isNavHidden && showHiddenComponent && (
             <ActiveComponent
               key={activeComponent}
@@ -106,8 +99,10 @@ function Main() {
             />
           )}
         </AnimatePresence>
+        {/* fermeture */}
         {showHiddenComponent && <Close onClick={handleShowNavClick} />}
       </main>
+      {/* footer */}
       {activeComponent !== 'Home' && <Footer />}
     </>
   );

@@ -1,4 +1,5 @@
 import chevron from '../images/chevron.png';
+import { motion as m } from 'framer-motion';
 
 function Header({ setActiveComponent }) {
   const components = [
@@ -14,7 +15,12 @@ function Header({ setActiveComponent }) {
 
   //affichage render
   return (
-    <header>
+    <m.header
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1.0, fade: 'fadeIn' }}
+    >
       <nav
         className='flex-centre'
         role='navigation'
@@ -36,7 +42,7 @@ function Header({ setActiveComponent }) {
           </div>
         ))}
       </nav>
-    </header>
+    </m.header>
   );
 }
 

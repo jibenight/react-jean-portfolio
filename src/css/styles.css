@@ -155,7 +155,7 @@ button {
 
 /* style fleche bas */
 #arrow-down img {
-  width: 3%;
+  width: 5%;
   position: fixed;
   right: 50%;
   bottom: 10px;
@@ -163,7 +163,6 @@ button {
 }
 
 #arrow-down {
-  display: none;
   z-index: 99;
 }
 

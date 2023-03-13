@@ -6,6 +6,7 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
+  background: #f8f8f8;
 }
 
 #entete p {
@@ -164,6 +165,8 @@ h4.date {
 .education {
   flex-direction: column;
   margin-top: 5%;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 
 .education-titre {

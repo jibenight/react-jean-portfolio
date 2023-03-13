@@ -2,12 +2,13 @@ import { motion as m } from 'framer-motion';
 
 function Home({ motionAttributes }) {
   const { initial, animate, exit } = motionAttributes.Home;
+
   return (
     <m.section
       initial={initial}
       animate={animate}
       exit={exit}
-      transition={{ duration: 0.75, ease: 'easeOut' }}
+      transition={{ duration: 1.0, fade: 'fadeIn' }}
       id='home'
     >
       <div className='home-left'>
