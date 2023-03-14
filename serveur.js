@@ -17,7 +17,7 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 // enable static files pointing to the folder "src"
 // this can be used to serve the index.html file
 if (process.env.NODE_ENV !== 'production') {
-  folder = 'index.html';
+  folder = '/src';
   console.log('Mode Development');
 } else {
   folder = '/dist';
@@ -58,8 +58,8 @@ app.post('/', function (request, response) {
     port: 465,
     secure: true,
     auth: {
-      user: process.env.ACCOUNT_USER, // this should be YOUR GMAIL account
-      pass: process.env.PASSWORD, // this should be your password
+      user: process.env.ACCOUNT_USER,
+      pass: process.env.PASSWORD,
     },
   });
 

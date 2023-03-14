@@ -303,3 +303,9 @@ section#skills {
 footer {
   background-color: #f8f8f8;
 }
+
+/* style error 404 page */
+.nopage img {
+  width: 25%;
+  transform: rotate(180deg);
+}
