@@ -10,13 +10,14 @@ import ruby from '../images/certificats/ruby.jpg';
 import bootstrap from '../images/certificats/bootstrap.jpg';
 import { motion as m } from 'framer-motion';
 
-function About() {
+function About({ motionAttributes }) {
+  const { initial, animate, exit } = motionAttributes.About;
   return (
     <section id='aboutMe'>
       <m.div
-        initial={{ y: '-100%' }}
-        animate={{ y: '0%' }}
-        exit={{ y: '-100%' }}
+        initial={initial}
+        animate={animate}
+        exit={exit}
         transition={{ duration: 0.75, ease: 'easeOut' }}
         id='entete'
       >

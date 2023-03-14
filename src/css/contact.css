@@ -112,7 +112,6 @@ textarea:focus {
 
 #succes-message {
   height: 40vh;
-  display: none;
   align-content: center;
 }
 #succes-message :first-child {

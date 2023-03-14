@@ -2,16 +2,16 @@ import { useState } from 'react';
 import dataPortfolio from '../Dataportfolio';
 import { motion as m } from 'framer-motion';
 
-function Portfolio() {
+function Portfolio({ motionAttributes }) {
   // state
   const [infos, setinfos] = useState(dataPortfolio);
-
+  const { initial, animate, exit } = motionAttributes.Portfolio;
   //render
   return (
     <m.section
-      initial={{ x: '-100%' }}
-      animate={{ x: '0%' }}
-      exit={{ x: '-100%' }}
+      initial={initial}
+      animate={animate}
+      exit={exit}
       transition={{ duration: 0.75, ease: 'easeOut' }}
       id='portfolio'
     >

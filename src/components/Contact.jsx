@@ -3,15 +3,25 @@ import about from '../images/about.jpg';
 import phone from '../images/phone-call.png';
 import pin from '../images/pin.png';
 import email from '../images/email.png';
+import ContactForm from './ContactForm';
+import SuccesMessage from './SuccesMessage';
 import { motion as m } from 'framer-motion';
+import { useState } from 'react';
 
 function Contact({ motionAttributes }) {
+  //state
+  const [form, setForm] = useState(true);
   const { initial, animate, exit } = motionAttributes.Contact;
+  //component
+  function handleFormSubmit() {
+    setForm(false);
+  }
+
   return (
     <m.div
-      initial={{ x: '100%' }}
-      animate={{ x: '0' }}
-      exit={{ x: '100%' }}
+      initial={initial}
+      animate={animate}
+      exit={exit}
       transition={{ duration: 0.75, ease: 'easeOut' }}
     >
       <section id='contact'>
@@ -25,31 +35,12 @@ function Contact({ motionAttributes }) {
               <div className='form-left'>
                 <img src={about} alt='photo de jean en noir et blanc' />
               </div>
-              <div className='form-right'>
-                <form method='POST' id='formulaire'>
-                  <input type='text' name='name' placeholder='Nom' />
-                  <input type='text' name='subject' placeholder='Object' />
-                  <input type='email' name='email' placeholder='Email' />
-                  <textarea
-                    name='message'
-                    cols='30'
-                    rows='10'
-                    placeholder='Votre message'
-                  ></textarea>
-                  <input
-                    type='submit'
-                    value='envoi'
-                    className='btn-grad'
-                    id='submit-form'
-                  />
-                  <p className='mentions'>
-                    Les données ne sont pas enregistrées, mais seulement
-                    envoyées sur ma boite mail.
-                  </p>
-                </form>
-                <div id='succes-message'>
-                  <p id='send-message'>Votre message a bien été envoyé.</p>
-                </div>
+              <div className='form-right flex-center'>
+                {form ? (
+                  <ContactForm onSubmit={handleFormSubmit} />
+                ) : (
+                  <SuccesMessage />
+                )}
               </div>
             </div>
           </div>

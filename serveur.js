@@ -12,7 +12,7 @@ import path from 'path';
 const app = express();
 const port = 3000;
 let folder;
-let error404 = true;
+
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 // enable static files pointing to the folder "src"
 // this can be used to serve the index.html file
@@ -32,7 +32,7 @@ app.get('/', (request, response) => {
 // body parser middleware need for post and put
 app.use(express.json());
 // this is to handle URL encoded data
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 // end parser middleware
 
 // custom middleware to log data access for check in terminal
@@ -51,7 +51,9 @@ app.use(log);
 // HTTP POST
 
 app.post('/', function (request, response) {
-  error404 = false;
+  // Autoriser les demandes provenant de n'importe quel domaine
+  response.setHeader('Access-Control-Allow-Origin', '*');
+
   // create reusable transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
     host: 'mail.jean-nguyen.dev',
@@ -88,11 +90,9 @@ app.post('/', function (request, response) {
 });
 
 //error 404
-if (error404) {
-  app.use(function (request, response) {
-    response.status(404).sendFile(path.join(__dirname, folder, '404.html'));
-  });
-}
+app.use(function (request, response) {
+  response.status(404).sendFile(path.join(__dirname, folder, 'index.html'));
+});
 
 // PhusionPassenger need for O2switch
 if (typeof PhusionPassenger !== 'undefined') {
