@@ -51,8 +51,6 @@ function Main() {
     setIsNavHidden(true);
     setActiveComponent(componentName);
     setShowHiddenComponent(true);
-    //affiche la flèche après 1 seconde
-    setTimeout(() => setIsOneSecondPassed(true), 1000);
   };
   //affiche la nav et le composant Home
   const handleShowNavClick = () => {
@@ -83,7 +81,7 @@ function Main() {
       {!isNavHidden && <Header setActiveComponent={handleComponentClick} />}
       <main className='flex-centre'>
         {/* flèche */}
-        {activeComponent !== 'Home' && isOneSecondPassed && <Arrow />}
+        {activeComponent !== 'Home' && <Arrow />}
         {/* composant actif */}
         <AnimatePresence mode='sync'>
           {!isNavHidden && (
