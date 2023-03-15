@@ -46,10 +46,8 @@ const log = function (request, response, next) {
   next();
 };
 app.use(log);
-// end custom middleware
 
-// HTTP POST
-
+// HTTP POST request
 app.post('/', function (request, response) {
   // Autoriser les demandes provenant de n'importe quel domaine
   response.setHeader('Access-Control-Allow-Origin', '*');
@@ -68,9 +66,9 @@ app.post('/', function (request, response) {
   let textBody = `FROM: ${request.body.name} EMAIL: ${request.body.email} MESSAGE: ${request.body.message}`;
   let htmlBody = `<h2>Email du formulaire jean-nguyen.dev</h2><p>Nom: ${request.body.name}</p><p>Objet: ${request.body.subject}</p><p>Email: <a href="mailto:${request.body.email}">${request.body.email}</a></p><p>Message:<br><br> ${request.body.message}</p>`;
   let mail = {
-    from: 'contact@jean-nguyen.dev', // sender address
-    to: 'nguyen.jean@me.com', // list of receivers (THIS COULD BE A DIFFERENT ADDRESS or ADDRESSES SEPARATED BY COMMAS)
-    subject: 'Message du formulaire: jean-nguyen.dev', // Subject line
+    from: 'contact@jean-nguyen.dev',
+    to: 'nguyen.jean@me.com',
+    subject: 'Message du formulaire: jean-nguyen.dev',
     text: textBody,
     html: htmlBody,
   };

@@ -29,13 +29,14 @@ function Header({ setActiveComponent }) {
         {components.map(component => (
           <div className='flex-centre' key={component.key}>
             <p
+              className='icon-cross'
               name={component.name}
               onClick={() => handleNavClick(component.name)}
             >
               {component.label}
             </p>
             <img
-              className='fade-in-image'
+              className='fade-in-image icon-cross'
               src={chevron}
               alt='Chevron en gradient bleu du menu À propos de moi'
             />

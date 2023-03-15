@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 function ContactForm(props) {
   const {
@@ -7,13 +8,20 @@ function ContactForm(props) {
     watch,
     formState: { errors },
   } = useForm();
+
+  // envoi les données du formulaire au backend
+  function sendEmail(data) {
+    axios.post('/', data);
+  }
+
+  // fonction qui récupère les données du formulaire
   const onSubmit = data => {
-    console.log(data);
+    sendEmail(data);
     props.onSubmit();
   };
 
   return (
-    <form method='POST' id='formulaire' onSubmit={handleSubmit(onSubmit)}>
+    <form id='formulaire' onSubmit={handleSubmit(onSubmit)}>
       <input type='text' name='name' placeholder='Nom' {...register('name')} />
       <input
         type='text'
