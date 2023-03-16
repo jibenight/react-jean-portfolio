@@ -1,5 +1,4 @@
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
 
 function ContactForm(props) {
   const {
@@ -11,7 +10,13 @@ function ContactForm(props) {
 
   // envoi les données du formulaire au backend
   function sendEmail(data) {
-    axios.post('/', data);
+    fetch('/', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
   }
 
   // fonction qui récupère les données du formulaire
