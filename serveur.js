@@ -11,19 +11,10 @@ import nodemailer from 'nodemailer';
 import path from 'path';
 const app = express();
 const port = 3000;
-let folder;
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
-// enable static files pointing to the folder "src"
-// this can be used to serve the index.html file
-if (process.env.NODE_ENV !== 'production') {
-  folder = '/src';
-  console.log('Mode Development');
-} else {
-  folder = '/dist';
-  console.log('Mode Production');
-}
-app.use(express.static(path.join(__dirname, folder)));
+
+app.use(express.static(path.join(__dirname, '/dist')));
 //render index.html page
 app.get('/', (request, response) => {
   response.render('index.html');

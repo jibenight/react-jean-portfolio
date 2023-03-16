@@ -12,7 +12,7 @@ function Arrow() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 1.0, fade: 'fadeIn', delay: 1.5 }}
+      transition={{ duration: 1.0, fade: 'fadeIn', delay: 1 }}
       id='arrow-down'
     >
       <img id='arrow-animation' src={arrowDown} alt='' />
