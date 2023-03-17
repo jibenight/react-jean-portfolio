@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import Arrow from './components/Arrow';
-import About from './components/About';
-import Contact from './components/Contact';
-import Home from './components/Home';
-import Header from './components/Header';
-import Portfolio from './components/Portfolio';
-import Skills from './components/Skills';
-import Footer from './components/Footer';
-import Close from './components/Close';
+import Arrow from './Arrow';
+import About from './About';
+import Contact from './Contact';
+import Home from './Home';
+import Header from './Header';
+import Portfolio from './Portfolio';
+import Skills from './Skills';
+import Footer from './Footer';
+import Close from './Close';
 import { AnimatePresence } from 'framer-motion';
 
 function Main() {

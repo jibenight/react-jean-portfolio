@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import dataPortfolio from '../Dataportfolio';
+import dataPortfolio from '../data/Dataportfolio';
 import { motion as m } from 'framer-motion';
 
 function Portfolio({ motionAttributes }) {

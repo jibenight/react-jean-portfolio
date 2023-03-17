@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import Main from './Main.jsx';
+import Main from './components/Main';
 import Error404 from './components/error404';
 import './css/styles.css';
 import 'animate.css';
