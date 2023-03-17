@@ -3,16 +3,12 @@ if (typeof PhusionPassenger !== 'undefined') {
   PhusionPassenger.configure({ autoInstall: false });
 }
 
-import * as dotenv from 'dotenv';
-dotenv.config();
-import express from 'express';
-import nodemailer from 'nodemailer';
-// const path = require('path');
-import path from 'path';
+require('dotenv').config();
+const express = require('express');
+const nodemailer = require('nodemailer');
+const path = require('path');
 const app = express();
 const port = 3000;
-
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 app.use(express.static(path.join(__dirname, '/dist')));
 //render index.html page
