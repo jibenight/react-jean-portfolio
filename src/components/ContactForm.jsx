@@ -27,17 +27,25 @@ function ContactForm(props) {
 
   return (
     <form id='formulaire' onSubmit={handleSubmit(onSubmit)}>
-      <input type='text' name='name' placeholder='Nom' {...register('name')} />
+      <input
+        type='text'
+        name='name'
+        placeholder='Nom'
+        required
+        {...register('name')}
+      />
       <input
         type='text'
         name='subject'
         placeholder='Object'
+        required
         {...register('subject')}
       />
       <input
         type='email'
         name='email'
         placeholder='Email'
+        required
         {...register('email')}
       />
       <textarea
@@ -45,6 +53,7 @@ function ContactForm(props) {
         cols='30'
         rows='10'
         placeholder='Votre message'
+        required
         {...register('message')}
       ></textarea>
       <input

@@ -87,6 +87,14 @@
   }
 
   /* contact */
+
+  #contact-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
   .form-left {
     display: none;
   }
@@ -102,6 +110,10 @@
     margin-top: 10%;
   }
   /* Skills */
+
+  .skills-animations {
+    margin-top: 25%;
+  }
 
   .skills {
     margin-top: 20%;
@@ -122,8 +134,17 @@
     width: 20vw;
   }
 
+  .portfolio-titre {
+    margin-top: 25%;
+  }
+
   /*footer*/
   footer svg {
     width: 10vw;
+  }
+
+  /* icon close */
+  #cancel img {
+    width: 44px;
   }
 } /*fin */
