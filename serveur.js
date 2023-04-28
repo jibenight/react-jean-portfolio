@@ -1,25 +1,27 @@
-// PhusionPassenger need for O2switch
-if (typeof PhusionPassenger !== 'undefined') {
-  PhusionPassenger.configure({ autoInstall: false });
-}
-
 require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const path = require('path');
+const helmet = require('helmet');
+const cors = require('cors');
+const validator = require('validator');
+
 const app = express();
 const port = 3000;
 
-app.use(express.static(path.join(__dirname, '/dist')));
+app.use(helmet());
+app.use(cors());
+app.use(express.static(path.join(__dirname, 'dist')));
+
 //render index.html page
 app.get('/', (request, response) => {
   response.render('index.html');
 });
 
 // body parser middleware need for post and put
-app.use(express.json());
+app.use(express.json({ limit: '1kb' }));
 // this is to handle URL encoded data
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true, limit: '1kb' }));
 // end parser middleware
 
 // custom middleware to log data access for check in terminal
@@ -36,8 +38,11 @@ app.use(log);
 
 // HTTP POST request
 app.post('/', function (request, response) {
-  // Autoriser les demandes provenant de n'importe quel domaine
-  response.setHeader('Access-Control-Allow-Origin', '*');
+  const { name, email, message, subject } = request.body;
+
+  if (!validator.isEmail(email)) {
+    return response.status(400).json({ message: 'Invalid email address' });
+  }
 
   // create reusable transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
@@ -50,8 +55,8 @@ app.post('/', function (request, response) {
     },
   });
 
-  let textBody = `FROM: ${request.body.name} EMAIL: ${request.body.email} MESSAGE: ${request.body.message}`;
-  let htmlBody = `<h2>Email du formulaire jean-nguyen.dev</h2><p>Nom: ${request.body.name}</p><p>Objet: ${request.body.subject}</p><p>Email: <a href="mailto:${request.body.email}">${request.body.email}</a></p><p>Message:<br><br> ${request.body.message}</p>`;
+  let textBody = `FROM: ${name} EMAIL: ${email} MESSAGE: ${message}`;
+  let htmlBody = `<h2>Email du formulaire jean-nguyen.dev (React Version)</h2><p>Nom: ${name}</p><p>Objet: ${subject}</p><p>Email: <a href="mailto:${email}">${email}</a></p><p>Message:<br><br> ${message}</p>`;
   let mail = {
     from: 'contact@jean-nguyen.dev',
     to: 'nguyen.jean@me.com',
@@ -64,7 +69,7 @@ app.post('/', function (request, response) {
   transporter.sendMail(mail, function (err, info) {
     if (err) {
       console.log(err);
-      response.json({
+      response.status(500).json({
         message:
           "message not sent: an error occured; check the server's console log",
       });
@@ -79,11 +84,6 @@ app.use(function (request, response) {
   response.status(404).sendFile(path.join(__dirname, folder, 'index.html'));
 });
 
-// PhusionPassenger need for O2switch
-if (typeof PhusionPassenger !== 'undefined') {
-  app.listen('passenger');
-} else {
-  app.listen(port, () => {
-    console.log(`App listening at http://localhost:${port}`);
-  });
-}
+app.listen(port, () => {
+  console.log(`App listening at http://localhost:${port}`);
+});
