@@ -5,6 +5,7 @@ const path = require('path');
 const helmet = require('helmet');
 const cors = require('cors');
 const validator = require('validator');
+const rateLimit = require('express-rate-limit');
 
 const app = express();
 const port = 3000;
@@ -36,6 +37,13 @@ const log = function (request, response, next) {
 };
 app.use(log);
 
+// Apply rate limiter to all requests
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+});
+app.use(limiter);
+
 // HTTP POST request
 app.post('/', function (request, response) {
   const { name, email, message, subject } = request.body;
@@ -43,6 +51,27 @@ app.post('/', function (request, response) {
   if (!validator.isEmail(email)) {
     return response.status(400).json({ message: 'Invalid email address' });
   }
+
+  const maxLength = 5000;
+  if (message.length > maxLength) {
+    return response.status(400).json({ message: 'Message is too long' });
+  }
+
+  const minLength = 1;
+  if (!validator.isLength(name, { min: minLength })) {
+    return response.status(400).json({ message: 'Name is too short' });
+  }
+
+  if (!validator.isLength(subject, { min: minLength })) {
+    return response.status(400).json({ message: 'Subject is too short' });
+  }
+
+  const escapedName = validator.escape(name);
+  const escapedSubject = validator.escape(subject);
+  const escapedMessage = validator.escape(message);
+
+  let textBody = `FROM: ${escapedName} EMAIL: ${email} MESSAGE: ${escapedMessage}`;
+  let htmlBody = `<h2>Email du formulaire jean-nguyen.dev (React Version)</h2><p>Nom: ${escapedName}</p><p>Objet: ${escapedSubject}</p><p>Email: <a href="mailto:${email}">${email}</a></p><p>Message:<br><br> ${escapedMessage}</p>`;
 
   // create reusable transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
@@ -55,8 +84,6 @@ app.post('/', function (request, response) {
     },
   });
 
-  let textBody = `FROM: ${name} EMAIL: ${email} MESSAGE: ${message}`;
-  let htmlBody = `<h2>Email du formulaire jean-nguyen.dev (React Version)</h2><p>Nom: ${name}</p><p>Objet: ${subject}</p><p>Email: <a href="mailto:${email}">${email}</a></p><p>Message:<br><br> ${message}</p>`;
   let mail = {
     from: 'contact@jean-nguyen.dev',
     to: 'nguyen.jean@me.com',
