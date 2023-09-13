@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import dataPortfolio from '../data/Dataportfolio';
+import LastDataPortfolio from '../data/LastDataPortfolio';
 import { motion as m } from 'framer-motion';
 
 function Portfolio({ motionAttributes }) {
   // state
   const [infos, setinfos] = useState(dataPortfolio);
+  const [lastinfo, setinfos] = useState(lastinfo);
   const { initial, animate, exit } = motionAttributes.Portfolio;
   //render
   return (
@@ -21,6 +23,9 @@ function Portfolio({ motionAttributes }) {
           <p>My work</p>
         </div>
       </div>
+      {/* last work */}
+      <div className='last-work'></div>
+      {/* other website   */}
       <div className='portfolio-item'>
         {infos.map((info, index) => (
           <div className='card' key={index}>
