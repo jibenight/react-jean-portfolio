@@ -6,7 +6,7 @@ import { motion as m } from 'framer-motion';
 function Portfolio({ motionAttributes }) {
   // state
   const [infos, setinfos] = useState(dataPortfolio);
-  const [lastinfo, setinfos] = useState(lastinfo);
+  const [lastinfo, setlastinfo] = useState(lastinfo);
   const { initial, animate, exit } = motionAttributes.Portfolio;
   //render
   return (
