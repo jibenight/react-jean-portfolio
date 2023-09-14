@@ -31,7 +31,7 @@ function Portfolio({ motionAttributes }) {
         {lastinfo.map((lastinfos, index) => (
           <div className='last-card' key={index}>
             <div className='last-images'>
-              <img src={lastinfos.src} alt='' />
+              <img src={lastinfos.src} alt={lastinfos.alt} />
             </div>
             <div className='last-infos'>
               <a
@@ -44,9 +44,7 @@ function Portfolio({ motionAttributes }) {
 
               <div className='last-logo'>
                 {lastinfos.logo.map((logos, index) => (
-                  <div key={index}>
-                    <img src={logos} alt='' />
-                  </div>
+                  <img key={index} src={logos} alt='logo techno' />
                 ))}
               </div>
               <div>
@@ -60,7 +58,9 @@ function Portfolio({ motionAttributes }) {
                   rel='noopener noreferrer'
                 >
                   <div className='git-link'>
-                    <div>{lastinfos.logogit}</div>
+                    <div>
+                      <img src={lastinfos.logogit} alt='logo github' />
+                    </div>
                     <p> Voir le repositorie Github</p>
                   </div>
                 </a>

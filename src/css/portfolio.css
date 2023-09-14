@@ -104,7 +104,7 @@ section#portfolio {
 
 .last-card {
   display: flex;
-  height: 240px;
+  min-height: 240px;
   margin-top: 2%;
   background-color: #ebebeb;
   border-radius: 25px;
@@ -143,12 +143,22 @@ section#portfolio {
 
 .last-logo {
   display: flex;
-  width: 64px;
+}
+
+.last-logo img {
+  margin-right: 20px;
+}
+
+.last-logo:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .last-work .git-link {
   display: flex;
   align-items: center;
+  margin-top: 15px;
 }
 
 .last-work .git-link p {
@@ -166,7 +176,7 @@ section#portfolio {
 
 .portfolio-item .card {
   width: 100%; /* Utilise la largeur complète pour les petits écrans */
-  margin: 1% 0; /* Ajout de marges verticales */
+  margin: 3% 0; /* Ajout de marges verticales */
 }
 
 @media (min-width: 481px) and (max-width: 1024px) {
@@ -180,5 +190,37 @@ section#portfolio {
   .portfolio-item .card {
     width: 31.33%; /* Pour avoir 3 cartes par ligne */
     margin: 1%; /* Une marge pour espacer les cartes */
+  }
+}
+
+@media (max-width: 900px) {
+  .last-card {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .last-card .last-images img {
+    width: 100%;
+    border-radius: 25px 25px 0 0; /* Ajustez les bordures arrondies */
+  }
+  .last-card .last-infos {
+    width: 100%;
+
+    padding: 10px;
+    align-items: center;
+  }
+
+  .last-logo img {
+    width: 20%;
+  }
+  .last-logo {
+    justify-content: center;
+  }
+  .last-infos p {
+    text-align: center;
+  }
+  .last-work h2,
+  .autre-projets h2 {
+    text-align: center;
   }
 }
