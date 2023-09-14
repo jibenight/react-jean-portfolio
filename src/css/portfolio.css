@@ -104,6 +104,7 @@ section#portfolio {
 
 .last-card {
   display: flex;
+  height: 240px;
   margin-top: 2%;
   background-color: #ebebeb;
   border-radius: 25px;
@@ -111,13 +112,16 @@ section#portfolio {
 }
 
 .last-images {
+  border-radius: 25px 0px 0px 25px;
+}
+
+.last-images img {
   width: 360px;
   height: 240px;
+  object-fit: cover;
   border-radius: 25px 0px 0px 25px;
-  background-image: url('../images/images_portfolio/gilian-officiel.webp');
-  background-size: cover;
-  background-position: center;
 }
+
 .last-work h2,
 .autre-projets h2 {
   text-transform: uppercase;

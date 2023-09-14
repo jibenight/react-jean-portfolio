@@ -30,7 +30,9 @@ function Portfolio({ motionAttributes }) {
         <hr />
         {lastinfo.map((lastinfos, index) => (
           <div className='last-card' key={index}>
-            <div className='last-images'></div>
+            <div className='last-images'>
+              <img src={lastinfos.src} alt='' />
+            </div>
             <div className='last-infos'>
               <a
                 href={lastinfos.href}
