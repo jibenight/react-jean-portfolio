@@ -64,7 +64,6 @@ const handlebars = (
     </g>
   </svg>
 );
-const ghostCms = ghostCmsLogo;
 
 const LastDataPortfolio = [
   {
@@ -82,7 +81,7 @@ const LastDataPortfolio = [
     alt: 'tuktuk en ligne',
     titre: 'tuktukworldtour.com',
     details: 'Réalisation à 100% - Création de theme pour le CMS ghost',
-    logo: [handlebars, ghostCms],
+    logo: [handlebars, ghostCmsLogo],
     logogit: githubLogo,
     github: 'https://github.com/jibenight/Ghost-theme-tuktuk',
     href: 'https://tuktukworldtour.com/',

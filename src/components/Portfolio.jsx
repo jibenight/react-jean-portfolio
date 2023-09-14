@@ -44,7 +44,9 @@ function Portfolio({ motionAttributes }) {
 
               <div className='last-logo'>
                 {lastinfos.logo.map((logos, index) => (
-                  <div key={index}>{logos}</div>
+                  <div key={index}>
+                    <img src={logos} alt='' />
+                  </div>
                 ))}
               </div>
               <div>
