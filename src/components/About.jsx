@@ -9,6 +9,7 @@ import git from '../images/certificats/git.jpg';
 import ruby from '../images/certificats/ruby.jpg';
 import bootstrap from '../images/certificats/bootstrap.jpg';
 import { motion as m } from 'framer-motion';
+import cvJean from '../images/CV-jean-nguyen.pdf';
 
 function About({ motionAttributes }) {
   const { initial, animate, exit } = motionAttributes.About;
@@ -59,7 +60,7 @@ function About({ motionAttributes }) {
             .
           </p>
 
-          <a href='../images/CV-Jean-Nguyen.pdf' target='_blank'>
+          <a href={cvJean} target='_blank'>
             <button className='btn-grad'>Télécharger mon CV</button>
           </a>
         </div>
