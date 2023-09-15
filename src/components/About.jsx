@@ -30,26 +30,33 @@ function About({ motionAttributes }) {
             <p>Who I am</p>
           </div>
           <p>
-            De nature curieuse, j’aime apprendre de nouvelles choses. Ce qui
-            m’est grandement utile dans le milieu de l’informatique. Issue du
-            domaine commercial, je me suis reconvertie dans le développement web
-            car j’ai toujours été un passionné d’informatique et je voulais
-            plutôt concevoir que ventre des choses.
-          </p>
-          <br />
-          <p>
-            De nature calme et pédagogue, j’aime transmettre mon savoir et mon
-            expérience professionnelle. Ce qui m’a conduit à enseigner des
-            langages comme le HTML et CSS3 ou des notions plus générales dans le
-            domaine du digital.
-          </p>
-          <br />
-          <p>
-            Dans mon temps libre, tu peux me trouver au cinéma, en train de
-            jouer à la console ou de prendre un avion pour une destination à
-            l’autre bout du monde. J’aime aussi me retrouver avec mes amis pour
-            partager un bon repas accompagné d’un bon verre. Je ne suis pas
-            difficile à convaincre quand il s’agit de sortir.{' '}
+            Originaire du domaine commercial, je suis Jean Nguyen, un
+            développeur web passionné qui s'est plongé corps et âme dans
+            l'univers fascinant du numérique. Ma curiosité insatiable m'a
+            conduit à explorer les recoins les plus profonds de la technologie,
+            me permettant ainsi de concevoir des sites web aux fonctionnalités
+            variées, alliant esthétique moderne et fonctionnalités optimales. Au
+            fil des ans, mon amour pour l'informatique ne s'est pas seulement
+            traduit par la création; j'ai découvert une passion tout aussi
+            fervente pour l'enseignement. En tant que formateur digital, j'ai eu
+            l'honneur de guider d'innombrables étudiants et professionnels à
+            travers les méandres des technologies web les plus actuelles, des
+            langages de base aux outils avancés. La pédagogie, pour moi, n'est
+            pas qu'une simple transmission de connaissances; c'est un art qui
+            nécessite patience, adaptabilité et, surtout, une compréhension
+            profonde des besoins individuels de chaque apprenant. En dehors de
+            mon univers professionnel, je suis un éternel curieux. Que ce soit
+            le dernier film à succès, un jeu vidéo immersif ou une nouvelle
+            destination de voyage, chaque expérience m'enrichit et élargit ma
+            perspective. Au cœur de tout cela se trouve ma conviction que la
+            technologie, lorsqu'elle est utilisée avec conscience et créativité,
+            a le pouvoir de transformer le monde. Si vous partagez cette vision
+            ou êtes simplement curieux de découvrir comment nous pourrions
+            collaborer,{' '}
+            <a href='mailto: contact@jean-nguyen.dev'>
+              n'hésitez pas à me contacter
+            </a>
+            .
           </p>
 
           <a href='../images/CV-Jean-Nguyen.pdf' target='_blank'>
