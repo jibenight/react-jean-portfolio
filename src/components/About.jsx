@@ -9,7 +9,7 @@ import git from '../images/certificats/git.jpg';
 import ruby from '../images/certificats/ruby.jpg';
 import bootstrap from '../images/certificats/bootstrap.jpg';
 import { motion as m } from 'framer-motion';
-import cvJean from '../images/CV-jean-nguyen.pdf';
+import cvJean from '../images/cv-jean-nguyen.pdf';
 
 function About({ motionAttributes }) {
   const { initial, animate, exit } = motionAttributes.About;
