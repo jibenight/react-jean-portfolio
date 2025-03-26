@@ -3,7 +3,8 @@ import about from '../images/about.jpg';
 import phone from '../images/phone-call.png';
 import pin from '../images/pin.png';
 import email from '../images/email.png';
-import ContactForm from './ContactForm';
+// import ContactForm from './ContactForm';
+import FormNetlify from './FormNetlify';
 import SuccesMessage from './SuccesMessage';
 import { motion as m } from 'framer-motion';
 import { useState } from 'react';
@@ -37,7 +38,8 @@ function Contact({ motionAttributes }) {
               </div>
               <div className='form-right flex-center'>
                 {form ? (
-                  <ContactForm onSubmit={handleFormSubmit} />
+                  // <ContactForm onSubmit={handleFormSubmit} />
+                  <FormNetlify onSubmit={handleFormSubmit} />
                 ) : (
                   <SuccesMessage />
                 )}
