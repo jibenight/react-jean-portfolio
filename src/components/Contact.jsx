@@ -63,7 +63,7 @@ function Contact({ motionAttributes }) {
               />
             </div>
             <div className='contact4'>
-              <p>Agen</p>
+              <p>Avignon</p>
             </div>
             <div className='contact5'>
               <a href='mailto:contact@jean-nguyen.dev'>
