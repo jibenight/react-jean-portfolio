@@ -9,6 +9,22 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Formulaire caché (fallback) pour Netlify -->
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      style="display: none"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <!-- Champs minimalistes pour correspondre à ceux de ta version React -->
+      <input type="text" name="name" />
+      <input type="text" name="subject" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+    <!-- Fin du formulaire de fallback -->
+
     <script type="module" src="/src/App.jsx"></script>
   </body>
 </html>
