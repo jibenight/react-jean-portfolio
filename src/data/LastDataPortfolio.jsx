@@ -1,21 +1,21 @@
 import gilian from '../images/images_portfolio/gilian-officiel.webp';
 import tuktuk from '../images/images_portfolio/tuktuk.webp';
+import getPassword from '../images/images_portfolio/get-password.webp';
 import ghostCmsLogo from '../images/icons/ghost-logo-dark.svg';
-import reactLogo from '../images/icons/react.svg';
+import astro from '../images/icons/astro.svg';
 import handlebars from '../images/icons/handlebars.svg';
-import Express from '../images/icons/express.svg';
 import Github from '../images/icons/github.svg';
 
 const LastDataPortfolio = [
   {
-    src: gilian,
-    alt: 'à Gauche portrait de Gilian et à gauche le logo du site internet gilian-officiel.com',
-    titre: 'Gilian-officiel.com',
+    src: getPassword,
+    alt: 'Jeune femme devant sonr ordinateur',
+    titre: 'Get-password.com',
     details: 'Réalisation à 100%',
-    logo: [reactLogo, Express],
+    logo: [astro],
     logogit: Github,
-    github: 'https://github.com/jibenight/Gilian-officiel',
-    href: 'https://gilian-officiel.com',
+    github: 'https://github.com/jibenight/Get-password',
+    href: 'https://get-password.com',
   },
   {
     src: tuktuk,
