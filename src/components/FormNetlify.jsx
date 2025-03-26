@@ -1,6 +1,15 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
+// Petite fonction utilitaire pour encoder les données en application/x-www-form-urlencoded
+function encodeFormData(data) {
+  // data est un objet { name: "...", email: "...", ... }
+  // On le transforme en "name=...&email=...&..."
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+}
+
 function NetlifyContactForm({ onSubmit }) {
   const {
     register,
@@ -8,30 +17,54 @@ function NetlifyContactForm({ onSubmit }) {
     formState: { errors },
   } = useForm();
 
-  // Fonction de soumission : Netlify gère l’envoi,
-  // tu peux néanmoins ajouter ton propre traitement si besoin
-  const handleFormSubmit = data => {
-    // Par exemple, loguer les données ou déclencher une action
-    console.log('Données du formulaire:', data);
+  const handleFormSubmit = async formData => {
+    try {
+      // On ajoute form-name: 'contact' pour que Netlify identifie le formulaire
+      const dataWithFormName = {
+        'form-name': 'contact',
+        ...formData,
+      };
 
-    // Si tu veux exécuter une callback personnalisée:
-    if (onSubmit) {
-      onSubmit(data);
+      // Envoi via fetch sur "/" (l’URL de la page) avec le body encodé
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: encodeFormData(dataWithFormName),
+      });
+
+      if (response.ok) {
+        // Si tout va bien, on affiche le message de succès
+        if (onSubmit) {
+          onSubmit(formData);
+        }
+      } else {
+        console.error(
+          'Erreur lors de l’envoi du formulaire sur Netlify:',
+          response
+        );
+      }
+    } catch (error) {
+      console.error('Erreur inattendue:', error);
     }
   };
 
+  // onSubmit={handleSubmit(handleFormSubmit)} bloque la soumission native
+  // et déclenche handleFormSubmit() en JS, sans reload
   return (
     <form
       id='formulaire'
       name='contact'
       method='POST'
       data-netlify='true'
+      // IMPORTANT : on supprime l'action pour ne pas rediriger automatiquement
       onSubmit={handleSubmit(handleFormSubmit)}
     >
-      {/* Champ caché exigé pour Netlify */}
+      {/* Même si on utilise fetch, on conserve ceci pour l’identification du form */}
       <input type='hidden' name='form-name' value='contact' />
 
-      {/* Champ « bot-field » optionnel pour filtrer le spam */}
+      {/* Champ honeypot anti-spam (optionnel) */}
       <p style={{ display: 'none' }}>
         <label>
           Ne remplissez pas ce champ si vous êtes humain :
@@ -39,12 +72,13 @@ function NetlifyContactForm({ onSubmit }) {
         </label>
       </p>
 
+      {/* Champs visibles */}
       <input
         type='text'
         name='name'
         placeholder='Nom'
         required
-        {...register('name')}
+        {...register('name', { required: true })}
       />
 
       <input
@@ -52,7 +86,7 @@ function NetlifyContactForm({ onSubmit }) {
         name='subject'
         placeholder='Object'
         required
-        {...register('subject')}
+        {...register('subject', { required: true })}
       />
 
       <input
@@ -60,7 +94,7 @@ function NetlifyContactForm({ onSubmit }) {
         name='email'
         placeholder='Email'
         required
-        {...register('email')}
+        {...register('email', { required: true })}
       />
 
       <textarea
@@ -69,7 +103,7 @@ function NetlifyContactForm({ onSubmit }) {
         rows='10'
         placeholder='Votre message'
         required
-        {...register('message')}
+        {...register('message', { required: true })}
       ></textarea>
 
       <input
@@ -81,7 +115,7 @@ function NetlifyContactForm({ onSubmit }) {
 
       <p className='mentions'>
         Les données ne sont pas enregistrées, mais seulement envoyées sur ma
-        boite mail.
+        boîte mail via Netlify.
       </p>
     </form>
   );
